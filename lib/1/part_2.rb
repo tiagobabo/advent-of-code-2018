@@ -1,18 +1,15 @@
-def find_repeated_sum(frequencies)
-  @visited ||= [0]
-  @sum     ||= 0
+require 'set'
 
-  frequencies.each do |n|
-    @sum += n
+visited = Set.new
+frequency = 0
 
-    if @visited.include?(@sum)
-      return @sum
-    else
-      @visited << @sum
-    end
+File.readlines('input.txt', chomp: true).map(&:to_i).cycle do |value|
+  frequency += value
+
+  if visited.include?(frequency)
+    puts frequency
+    break
   end
 
-  find_repeated_sum(frequencies)
+  visited << frequency
 end
-
-puts find_repeated_sum(File.readlines('input.txt', chomp: true).map(&:to_i))

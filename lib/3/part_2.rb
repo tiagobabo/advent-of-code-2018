@@ -3,7 +3,7 @@ fabric = Hash.new(0)
 
 claims = claims.map do |claim|
   claim.scan(/(\d+)/).flatten.map(&:to_i)
-end.to_a
+end
 
 claims.each do |_, left, top, width, height|
   next if width == 0 || height == 0

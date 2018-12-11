@@ -1,3 +1,5 @@
+# https://en.wikipedia.org/wiki/Summed-area_table
+
 grid_serial_number = 9798
 sum_table = Hash.new
 

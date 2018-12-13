@@ -2,7 +2,6 @@ input = File.readlines('input.txt', chomp: true)
 initial_state = input.first.scan(/initial state: (.*)/).flatten.first
 rules = Hash.new
 pots = Hash.new('.')
-score = 0
 
 input[2..-1].each do |line|
   sequence, result = line.scan(/(.*) => (.*)/).flatten
@@ -28,7 +27,6 @@ end
   end
 
   pots = new_state
-  score = pots.select { |_, v| v == '#' }.keys.sum
 end
 
-puts score
+puts pots.select { |_, v| v == '#' }.keys.sum
